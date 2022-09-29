@@ -1,0 +1,54 @@
+version: "3.9"
+services:
+  nginx:
+    build: .docker/nginx
+    ports:
+      - "80:80"
+    networks:
+      - client_frontend
+      - server_backend
+
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: strapi
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    ports:
+      - 5432:5432
+    volumes:
+      - strapi:/var/lib/postgresql/data
+    networks:
+      - server_backend
+
+  adminer:
+    image: adminer
+    restart: always
+    depends_on:
+      - postgres
+    ports:
+      - 8081:8080
+    networks:
+      - server_backend
+
+  strapi:
+    build: .
+    restart: always
+    volumes:
+      - .:/app
+      - /app/node_modules
+    networks:
+      - server_backend
+      - client_frontend
+
+
+volumes:
+  strapi:
+
+networks:
+  client_frontend:
+    name: "client_frontend"
+    external: true
+  server_backend:
+    name: "server_backend"

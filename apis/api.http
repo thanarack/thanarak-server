@@ -1,0 +1,12 @@
+GET http://api.thanarak.internal/api/blogs-1?fields[0]=title&fields[1]=description&fields[2]=publishedAt&populate[thumbnail][fields][0]=formats&sort[0]=id
+
+###
+
+GET http://api.thanarak.internal/api/blogs-1?populate=*
+###
+
+GET http://api.thanarak.internal/api/blogs-1/1?populate=*
+
+###
+
+GET http://api.thanarak.internal/api/upload/files
