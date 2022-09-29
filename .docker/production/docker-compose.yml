@@ -30,6 +30,8 @@ services:
       context: ../../
       dockerfile: ./.docker/production/Dockerfile
     image: thanarack-server-env-production
+    ports:
+      - 1337:80
     depends_on:
       - postgres
     networks:
