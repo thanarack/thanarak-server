@@ -10,6 +10,8 @@ module.exports = [
         "http://thanarak.internal",
         "http://thanarak.internal:3000",
         "http://api.thanarak.internal",
+        "https://api.thanarak.com",
+        "https://www.thanarak.com",
       ],
     },
   },
