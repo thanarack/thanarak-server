@@ -1,7 +1,10 @@
 version: "3.9"
+
+name: thanarak-server
+
 services:
   nginx:
-    build: .docker/development/nginx
+    build: ./nginx
     ports:
       - "80:80"
     networks:
@@ -22,26 +25,16 @@ services:
     networks:
       - server_backend
 
-  adminer:
-    image: adminer
-    restart: always
+  strapi:
+    build:
+      context: ../../
+      dockerfile: ./.docker/production/Dockerfile
+    image: thanarack-server-env-production
     depends_on:
       - postgres
-    ports:
-      - 8081:8080
-    networks:
-      - server_backend
-
-  strapi:
-    build: .
-    restart: always
-    volumes:
-      - .:/app
-      - /app/node_modules
     networks:
       - server_backend
       - client_frontend
-
 
 volumes:
   strapi:
