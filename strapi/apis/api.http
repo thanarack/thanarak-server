@@ -10,3 +10,7 @@ GET http://api.thanarak.internal/api/blogs-1/1?populate=*
 ###
 
 GET http://api.thanarak.internal/api/upload/files
+
+###
+
+GET https://api.thanarak.com/api/blogs-1
