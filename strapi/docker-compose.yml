@@ -5,7 +5,7 @@ name: thanarak-strapi
 services:
   strapi:
     build: .
-    image: thanarack-server-env-development
+    image: thanarack-strapi-env-development
     restart: always
     volumes:
       - .:/app

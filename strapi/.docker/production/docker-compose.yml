@@ -7,7 +7,7 @@ services:
     build:
       context: ../../
       dockerfile: ./.docker/production/Dockerfile
-    image: thanarack-server-env-production
+    image: thanarack-strapi-env-production
     networks:
       - server_backend
       - client_frontend
