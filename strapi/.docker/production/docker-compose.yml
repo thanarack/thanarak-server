@@ -8,9 +8,15 @@ services:
       context: ../../
       dockerfile: ./.docker/production/Dockerfile
     image: thanarack-strapi-env-production
+    volumes:
+      - strapi_public:/app/public
     networks:
       - server_backend
       - client_frontend
+
+
+volumes:
+  strapi_public:
 
 networks:
   client_frontend:
