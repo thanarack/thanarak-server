@@ -23,16 +23,6 @@ services:
     networks:
       - server_backend
 
-  adminer:
-    image: adminer
-    restart: always
-    depends_on:
-      - postgres
-    ports:
-      - 8081:8080
-    networks:
-      - server_backend
-
 volumes:
   strapi:
 
