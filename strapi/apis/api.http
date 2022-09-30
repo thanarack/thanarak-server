@@ -14,3 +14,16 @@ GET http://api.thanarak.internal/api/upload/files
 ###
 
 GET https://api.thanarak.com/api/blogs-1
+
+###
+
+POST http://api.thanarak.internal/api/contacts-1
+Content-Type: application/json
+
+{
+  "data": {
+    "email": "thanarack@gmail.com",
+    "name": "Thanarak Chaisri",
+    "phone": "8948"
+  }
+}
