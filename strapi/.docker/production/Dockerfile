@@ -14,6 +14,6 @@ COPY .env.production /app/.env
 
 RUN yarn build
 
-EXPOSE 80
+EXPOSE 1337
 
 CMD ["yarn", "start"]

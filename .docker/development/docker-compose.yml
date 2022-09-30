@@ -1,9 +1,12 @@
-version: "3.9"
+version: '3.9'
+
+name: thanarak-server
+
 services:
   nginx:
-    build: .docker/development/nginx
+    build: ./nginx
     ports:
-      - "80:80"
+      - '80:80'
     networks:
       - client_frontend
       - server_backend
@@ -32,23 +35,12 @@ services:
     networks:
       - server_backend
 
-  strapi:
-    build: .
-    restart: always
-    volumes:
-      - .:/app
-      - /app/node_modules
-    networks:
-      - server_backend
-      - client_frontend
-
-
 volumes:
   strapi:
 
 networks:
   client_frontend:
-    name: "client_frontend"
+    name: 'client_frontend'
     external: true
   server_backend:
-    name: "server_backend"
+    name: 'server_backend'

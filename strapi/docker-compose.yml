@@ -1,0 +1,23 @@
+version: "3.9"
+
+name: thanarak-strapi
+
+services:
+  strapi:
+    build: .
+    image: thanarack-server-env-development
+    restart: always
+    volumes:
+      - .:/app
+      - /app/node_modules
+    networks:
+      - server_backend
+      - client_frontend
+
+networks:
+  client_frontend:
+    name: "client_frontend"
+    external: true
+  server_backend:
+    name: "server_backend"
+    external: true
